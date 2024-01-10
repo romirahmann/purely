@@ -1,0 +1,93 @@
+<section id="registrasiPage" class="bg-bg-register bg-no-repeat bg-cover">
+  <div class="grid grid-cols-1 h-screen">
+    <div
+      class="colForm grid md:justify-start md:ms-52 md:p-0 p-11 content-center"
+    >
+      <h1 class="font-bold text-3xl">Lets Register Account</h1>
+      <p class="mt-2 opacity-80">Hello, you have a greatful journery</p>
+      <p class="mt-0 opacity-80">waiting for you !</p>
+
+      <div class="formRegistrasi">
+        <form [formGroup]="registrasiForm" (ngSubmit)="onSubmit()" class="mt-5">
+          <div class="mb-5">
+            <label
+              for="username"
+              class="block mb-2 text-sm font-medium text-[#404040] dark:text-white"
+              >Username</label
+            >
+            <input
+              type="text"
+              id="username"
+              class="bg-gray-50 border border-gray-300 text-[#404040] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="your username..."
+              formControlName="username"
+              required
+            />
+            <div class="mt-2">
+              <div [hidden]="!wrongUsername">
+                <span
+                  class="p-2 mt-2 text-sm text-red-600 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                  >Username is required</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="mb-5 relative">
+            <label
+              for="password"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Password</label
+            >
+            <input
+              [type]="hideToglePassword ? 'password' : 'text'"
+              id="password"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="your password..."
+              formControlName="password"
+              required
+            />
+            <div
+              class="toggle-password absolute inset-y-12 right-0 flex items-center pr-3 pointer-events-auto cursor-pointer"
+              (click)="togglePasswordVisibility()"
+            >
+              <i
+                class="fa-regular"
+                [ngClass]="hideToglePassword ? 'fa-eye-slash' : 'fa-eye'"
+              ></i>
+            </div>
+            <div class="mt-2">
+              <div [hidden]="!wrongPassword">
+                <span
+                  class="p-2 mt-2 text-sm text-red-600 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                  >Password is required</span
+                >
+              </div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Sign Up
+          </button>
+        </form>
+        <div>
+          <p class="mt-5">
+            Have account?
+            <span class="text-accent"
+              ><a routerLink="/auth/login">Sign In</a></span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL SUCCESS -->
+  <app-modal-success
+    id="modalSuccess"
+    tabindex="-1"
+    class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 md:w-auto max-w-md rounded-lg p-4"
+    [receivedText]="information | async"
+  ></app-modal-success>
+</section>
