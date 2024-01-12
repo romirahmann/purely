@@ -7,6 +7,7 @@ module.exports = {
         "bg-login": "url(./../src/assets/img/bg-login.png)",
         "bg-register": "url(./../src/assets/img/bg-register.png)",
         "icon-register": "url(./../src/assets/img/icon-register.png)",
+        "cloud-quiz": "url(./../src/assets/img/cloud-quiz.png)",
       },
     },
     colors: {
@@ -19,7 +20,5 @@ module.exports = {
       primary: "Poppins",
     },
   },
-  plugins: [
-    require("flowbite/plugin"), // add this line
-  ],
+  plugins: [require("flowbite/plugin")],
 };

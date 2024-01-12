@@ -1,4 +1,9 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -20,7 +25,8 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
-    private api: AuthService
+    private api: AuthService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -70,7 +76,14 @@ export class LoginComponent {
   login(data: any) {
     this.api.login(data).subscribe(
       (res: any) => {
-        console.log(res);
+        this.api.savetoken(
+          res.userData.token,
+          res.userData.username,
+          res.userData.user_code,
+          res.userData.level_code
+        );
+        this.cdr.detectChanges();
+        // console.log(res.userData);
         this.showModal();
       },
       (err: any) => {

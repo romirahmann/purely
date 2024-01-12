@@ -1,1 +1,100 @@
-<h1 class="text-2xl font-bold">HALLO GUYS</h1>
+<div class="grid md:grid-cols-2">
+  <div class="img-hero grid justify-center">
+    <img src="./../../../assets//img/hero.png" alt="" />
+  </div>
+  <div class="content-hero grid justify-center content-center text-center p-20">
+    <p class="mb-5">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis perferendis
+      ipsum amet aliquam sint doloribus, sed, aperiam eveniet recusandae
+      inventore mollitia neque a? Itaque odio recusandae sunt officiis deserunt
+      ipsa!
+    </p>
+    <button
+      *ngIf="!dataLogin"
+      (click)="showModal()"
+      class="bg-primary text-white rounded-xl p-3 hover:bg-primary70"
+    >
+      MULAI QUIZ
+    </button>
+    <button
+      *ngIf="dataLogin"
+      routerLink="/quiz"
+      class="bg-primary text-white rounded-xl p-3 hover:bg-primary70"
+    >
+      MULAI QUIZ
+    </button>
+  </div>
+</div>
+<section class="mt-20 relative">
+  <img src="./../../../assets/img/cloud.png" alt="" class="absolute w-full" />
+</section>
+<section
+  class="bg-gradient-to-b from-[#A2DDF8] to-[#E3F2FA] bg-no-repeat bg-cover sm:mt-40 md:mt-52"
+>
+  <div class="grid md:grid-cols-2 hero-2">
+    <div class="desc-2 grid justify-center content-center text-center p-20">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+        dignissimos ducimus ratione laboriosam, atque in hic vitae? Velit
+        sapiente tempore aliquid, fugit dignissimos necessitatibus repellendus
+        autem officia quaerat veniam suscipit! Laborum voluptate ab ipsum nisi
+        voluptatum minima quibusdam autem culpa atque. Molestiae doloremque
+        placeat neque cum natus, inventore, cupiditate tenetur praesentium quas
+        quis illum quam consequuntur ullam! Quidem, veritatis error. Libero
+        magni culpa consequatur dolorem voluptate commodi id eius! Beatae alias
+        voluptatum veritatis reiciendis provident, earum facere modi cum quasi
+        perspiciatis placeat, iste saepe neque. Minima ex voluptatibus inventore
+        aliquid.
+      </p>
+    </div>
+    <div class="img-2 grid justify-center">
+      <img src="./../../../assets/img/puzzle.png" alt="" />
+    </div>
+  </div>
+  <div class="hero-3 grid md:grid-cols-2">
+    <div class="video-bromo grid justify-center content-center">
+      <video
+        class="w-full h-auto max-w-full border border-gray-200 rounded-lg dark:border-gray-700"
+        controls
+      >
+        <source
+          src="https://www.youtube.com/watch?v=uz2oyfQNSdU"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="desc-3 grid justify-center content-center text-center p-20">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro illum
+        velit nobis saepe culpa at explicabo ipsam voluptatem distinctio
+        deleniti nihil earum, dicta numquam beatae rerum recusandae autem vero
+        debitis? Officiis recusandae odit voluptatum commodi quidem dolorum
+        suscipit sequi expedita neque quo, laborum earum hic praesentium, libero
+        omnis, in cumque iste ducimus. Quisquam natus obcaecati expedita cumque,
+        necessitatibus consectetur aliquid. Minima, aliquid recusandae.
+        Voluptatem magni totam saepe nihil earum error quasi deleniti. Tempora,
+        atque natus ipsam vitae in incidunt vel delectus exercitationem dolorem
+        commodi earum animi non est sint dolore?
+      </p>
+    </div>
+  </div>
+</section>
+<section class="about bg-gradient-to-b from-[#E3F2FA] to-[#A2DDF8]">
+  <div class="about grid md:grid-cols-2">
+    <div class="desc-4 grid justify-center content-center text-center p-20">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet quam
+        voluptatibus asperiores nulla minus cumque, praesentium quae, temporibus
+        atque culpa ipsa. Accusantium inventore accusamus nisi perferendis
+        nostrum harum facilis nemo. Cumque fugit doloremque vero facilis ipsa!
+        Expedita temporibus eius ipsam amet eos, vitae odio repudiandae debitis!
+        Amet iste quasi aliquid sequi error nobis eligendi quis cupiditate, quia
+        delectus excepturi quaerat.
+      </p>
+    </div>
+    <div class="img-about grid justify-center content-center">
+      <img src="./../../../assets/img/about.png" alt="" />
+    </div>
+  </div>
+</section>
