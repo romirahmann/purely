@@ -34,6 +34,10 @@ export class LayoutsComponent {
     };
   }
 
+  refreshData() {
+    this.getDataUser();
+  }
+
   signOut() {
     this.api.logout();
     this.userLogin = null;

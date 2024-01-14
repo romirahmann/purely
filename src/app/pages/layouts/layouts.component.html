@@ -14,6 +14,7 @@
       </button>
       <button
         *ngIf="userLogin"
+        (click)="refreshData()"
         type="button"
         class="flex text-sm rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
         id="user-menu-button"

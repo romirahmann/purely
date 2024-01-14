@@ -15,6 +15,8 @@ module.exports = {
       secondary: "#C7E5F6",
       accent: "#D92D20",
       primary70: "#587B90",
+      correct: "#8BC63F",
+      wrong: "#EB2224",
     },
     fontFamily: {
       primary: "Poppins",
