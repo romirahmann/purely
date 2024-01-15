@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
 
@@ -7,20 +7,23 @@ import { Router } from '@angular/router';
   templateUrl: './layouts.component.html',
   styleUrls: ['./layouts.component.css'],
 })
-export class LayoutsComponent {
-  userLogin!: any;
+export class LayoutsComponent implements OnInit {
+  userLogin: any = null;
+
+  userCode!: any;
 
   // EMITER LOGIN
   @Output() infoLogin: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private api: AuthService, private route: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.isLogin();
   }
 
   isLogin() {
-    if (!this.userLogin && this.api.getToken()) {
+    if (!this.userLogin && this.authService.getToken()) {
+      this.userCode = this.authService.getUserCode();
       this.getDataUser();
       this.infoLogin.emit(this.userLogin);
     }
@@ -28,18 +31,21 @@ export class LayoutsComponent {
 
   getDataUser() {
     this.userLogin = {
-      username: this.api.getUsername(),
-      user_code: this.api.getUserCode(),
-      level_code: this.api.getLevelCode(),
+      username: this.authService.getUsername(),
+      user_code: this.userCode,
+      level_code: this.authService.getLevelCode(),
     };
   }
 
-  refreshData() {
-    this.getDataUser();
+  signOut() {
+    this.authService.logout();
+    this.userLogin = null;
   }
 
-  signOut() {
-    this.api.logout();
-    this.userLogin = null;
+  toggleUserMenu() {
+    const userDropdown = document.getElementById('user-dropdown');
+    if (userDropdown) {
+      userDropdown.classList.toggle('hidden');
+    }
   }
 }

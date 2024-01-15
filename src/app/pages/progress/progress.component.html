@@ -1,0 +1,28 @@
+<div class="relative h-screen grid justify-center">
+  <div class="component-progress z-[2]">
+    <img
+      src="./../../../assets/img/children-progress.png"
+      class="w-[280px]"
+      alt=""
+    />
+    <div class="text-center mt-2">
+      <p class="text-2xl font-extrabold">CONGARTULATIONS !!!</p>
+      <p class="xl">
+        <i class="fa-solid fa-face-laugh-squint text-yellow-900"></i> Score
+        Kamu:
+      </p>
+      <p>{{ dataUser?.score }}</p>
+      <button
+        routerLink="/"
+        class="bg-primary70 text-white p-2 rounded-xl w-36 md:w-80 hover:bg-primary mt-3 focus:ring-primary70"
+      >
+        BACK
+      </button>
+    </div>
+  </div>
+  <img
+    src="./../../../assets/img/cloud-progress.png"
+    alt=""
+    class="absolute w-full md:top-[-16rem] bottom-32 z-[1]"
+  />
+</div>

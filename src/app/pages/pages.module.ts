@@ -8,6 +8,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LayoutsComponent } from './layouts/layouts.component';
 import { LandingPageQuizComponent } from './landing-page-quiz/landing-page-quiz.component';
 import { DetailQuizComponent } from './detail-quiz/detail-quiz.component';
+import { AboutComponent } from './about/about.component';
+import { ProgressComponent } from './progress/progress.component';
 @NgModule({
   declarations: [
     ModalSuccessComponent,
@@ -16,6 +18,8 @@ import { DetailQuizComponent } from './detail-quiz/detail-quiz.component';
     LayoutsComponent,
     LandingPageQuizComponent,
     DetailQuizComponent,
+    AboutComponent,
+    ProgressComponent,
   ],
   imports: [CommonModule, PagesRoutingModule, FormsModule],
 })

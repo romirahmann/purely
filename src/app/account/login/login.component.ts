@@ -70,6 +70,7 @@ export class LoginComponent {
     setTimeout(() => {
       modalSuccess?.classList.add('hidden');
       this.route.navigate(['']);
+      this.cdr.detectChanges();
     }, 2000);
   }
 
@@ -82,7 +83,7 @@ export class LoginComponent {
           res.userData.user_code,
           res.userData.level_code
         );
-        this.cdr.detectChanges();
+
         // console.log(res.userData);
         this.showModal();
       },

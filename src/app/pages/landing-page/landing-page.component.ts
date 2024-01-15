@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { QuizServicesService } from 'src/app/core/services/quiz-services.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,15 +9,37 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent {
-  userLogin!: any;
   @Input() dataLogin!: any;
+  score!: number;
 
-  constructor(private api: AuthService, private route: Router) {}
+  constructor(
+    private api: AuthService,
+    private route: Router,
+    private apiQuiz: QuizServicesService
+  ) {}
   ngOnInit() {
-    console.log(this.dataLogin);
+    this.getScore();
+  }
+
+  getScore() {
+    this.apiQuiz
+      .getResultByUserCode(this.dataLogin.user_code)
+      .subscribe((res: any) => {
+        this.score = res.data[0].score;
+        console.log(this.score);
+      });
   }
 
   showModal() {
     alert('Silahkan Login terlebih dahulu!');
+  }
+
+  startQuiz() {
+    if (this.score < 350) {
+      this.route.navigate(['/quiz']);
+    } else {
+      alert('Kamu sudah menyelesaikan seluruh quiz :D');
+      this.route.navigate(['/progress']);
+    }
   }
 }

@@ -20,6 +20,7 @@ module.exports = {
     },
     fontFamily: {
       primary: "Poppins",
+      secondary: "Potta One",
     },
   },
   plugins: [require("flowbite/plugin")],

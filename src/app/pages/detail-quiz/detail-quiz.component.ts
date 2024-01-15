@@ -99,11 +99,11 @@ export class DetailQuizComponent {
       this.auth.updateLevelUser(newLevel.level_code);
     }
 
-    console.log(dataProgress);
+    // console.log(dataProgress);
     // Update Score
     this.api.updateResult(this.userCode, dataProgress).subscribe((res: any) => {
       console.log(`Update Progress Berhasil!`);
-      this.router.navigate(['/']);
+      this.router.navigate(['/progress']);
     });
   }
 
@@ -112,20 +112,29 @@ export class DetailQuizComponent {
     this.answerId = this.selectedAnswer.answer_id;
 
     setTimeout(() => {
-      if (this.selectedAnswer) {
-        if (this.status === 1) {
-          this.totalScore += this.questions[this.currentQuestionIndex].score;
-          console.log('BENAR');
+      if (this.status === 1) {
+        this.totalScore += this.questions[this.currentQuestionIndex].score;
+        if (this.currentQuestionIndex < this.questions.length - 1) {
+          this.currentQuestionIndex++;
+          this.selectedAnswer = null;
+          if (this.currentQuestionIndex === this.questions.length - 1) {
+            this.checkFinalScore();
+            this.quizFinished = true;
+          } else {
+            this.quizFinished = false;
+          }
+        } else {
+          this.quizFinished = true;
+          this.checkFinalScore();
         }
-        if (this.status === 0) {
-          console.log('SALAH');
-        }
-
-        this.quizFinished =
-          this.currentQuestionIndex === this.questions.length - 1;
-
-        // Call to check the final score
-        this.checkFinalScore();
+      }
+      if (this.status === 0) {
+        alert('Yahh.. Jawabanmu salah, silahkan ulangi kembali!');
+        setTimeout(() => {
+          this.status = null;
+          this.answerId = null;
+          this.selectedAnswer = null;
+        }, 1000);
       }
     }, 1000);
   }
