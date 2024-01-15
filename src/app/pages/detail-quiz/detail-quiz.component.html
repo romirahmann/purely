@@ -1,0 +1,86 @@
+<!-- detail-quiz.component.html -->
+<section id="detail-quiz" class="h-screen p-0 grid grid-rows-2 justify-center">
+  <div
+    class="row-1 grid grid-rows-2 justify-center content-center text-center mt-10 p-[2em]"
+  >
+    <div class="grid justify-center content-center text-center">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Bromo-Semeru-Batok-Widodaren.jpg/800px-Bromo-Semeru-Batok-Widodaren.jpg"
+        alt=""
+        class="w-[400px] h-[214px] rounded-2xl"
+      />
+    </div>
+    <div class="grid justify-center content-center text-center">
+      <p class="text-2xl mt-1">
+        {{ questions[currentQuestionIndex]?.question }}
+      </p>
+    </div>
+  </div>
+  <div
+    class="row-2 w-screen rounded-t-[5em] bg-secondary grid md:grid-rows-2 p-20"
+  >
+    <div class="form-answer">
+      <form class="row1 grid md:grid-cols-2 justify-center content-center">
+        <ng-container
+          *ngFor="
+            let answer of questions[currentQuestionIndex]?.answers;
+            let i = index
+          "
+        >
+          <div
+            class="answer1 items-center bg-white text-primary rounded-3xl p-6 m-2"
+            [ngClass]="{
+              'bg-correct':
+                selectedAnswer &&
+                answerId === answer.answer_id &&
+                answer.status === '1',
+              'bg-wrong':
+                selectedAnswer &&
+                answerId === answer.answer_id &&
+                answer.status === '0',
+              'bg-white': !selectedAnswer || answerId !== answer.answer_id,
+              'text-primary': !selectedAnswer || answerId !== answer.answer_id
+            }"
+          >
+            <input
+              type="radio"
+              id="{{ answer.description }}"
+              name="{{ answer.description }}"
+              [(ngModel)]="selectedAnswer"
+              [value]="answer"
+            />
+            <label for="{{ answer.description }}" class="ms-5">{{
+              answer.description
+            }}</label>
+          </div>
+        </ng-container>
+      </form>
+    </div>
+    <div class="row2 mt-16 grid justify-end">
+      <button
+        *ngIf="currentQuestionIndex === questions.length - 1"
+        (click)="finishQuiz()"
+        type="submit"
+        class="bg-primary text-white p-3 ps-5 pe-5 rounded-xl"
+        [hidden]="!selectedAnswer || !quizFinished"
+      >
+        Finish
+      </button>
+      <button
+        (click)="nextQuestion()"
+        type="submit"
+        class="bg-primary text-white p-3 ps-5 pe-5 rounded-xl"
+        [hidden]="!selectedAnswer || quizFinished"
+      >
+        Next Question
+      </button>
+    </div>
+  </div>
+  <div class="relative">
+    <img
+      src="./../../../assets/img/icon-quiz.png"
+      alt=""
+      class="absolute md:bottom-72 bottom-96 md:w-48 w-36"
+    />
+  </div>
+</section>

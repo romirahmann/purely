@@ -38,6 +38,11 @@ export class AuthService {
     this.authToken.next(level_code);
   }
 
+  updateLevelUser(level_code: any) {
+    localStorage.setItem('level_code', level_code);
+    this.authToken.next(level_code);
+  }
+
   logout() {
     localStorage.removeItem('auth_token');
     localStorage.removeItem('username');
