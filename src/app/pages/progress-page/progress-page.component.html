@@ -1,0 +1,53 @@
+<ng-container class="h-screen">
+  <div class="close grid justify-end me-10">
+    <button
+      routerLink="/"
+      class="bg-primary p-2 rounded-xl text-white text-2xl mt-2 grid justify-end hover:bg-accent"
+    >
+      <i class="fa-solid fa-x text-3xl"></i>
+    </button>
+  </div>
+  <div class="hero p-24 grid justify-center content-center text-center">
+    <div class="desc">
+      <p class="text-3xl">Selamat!! {{ dataUserLogin?.username }}</p>
+      <p class="text-2xl">Your Score:</p>
+      <p class="text-2xl font-bold">{{ dataUserLogin?.score }}</p>
+    </div>
+    <div class="icon-score grid justify-center content-center">
+      <iframe
+        src="https://lottie.host/embed/d7afa1e4-07a5-4b52-9e93-8a020cd74551/Na2hSn4a29.json"
+      ></iframe>
+    </div>
+  </div>
+  <div
+    class="progress h-screen bg-primary rounded-t-[2em] md:rounded-t-[10em] relative grid justify-center p-24"
+  >
+    <table>
+      <ng-container *ngFor="let result of dataResult">
+        <tr>
+          <td>
+            <img
+              class="w-30 h-30 md:w-20 md:h-20 rounded-full me-5"
+              src="./../../../assets/img/avatar.jpg"
+              alt="Rounded avatar"
+            />
+          </td>
+          <td>
+            <span class="flex flex-col text-white">
+              <p class="md:text-3xl">{{ result.user_code }}</p>
+              <p class="md:text-3xl">{{ result.score }}</p>
+            </span>
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+    <span class="flex mt:mt-20 md:ms-32">
+      <!-- <p class="text-8xl text-white font-bold me-5">1</p> -->
+    </span>
+    <img
+      src="./../../../assets/img/cloud-2.png"
+      class="w-full absolute bottom-1"
+      alt=""
+    />
+  </div>
+</ng-container>

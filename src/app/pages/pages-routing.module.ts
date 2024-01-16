@@ -5,6 +5,7 @@ import { LandingPageQuizComponent } from './landing-page-quiz/landing-page-quiz.
 import { DetailQuizComponent } from './detail-quiz/detail-quiz.component';
 import { AboutComponent } from './about/about.component';
 import { ProgressComponent } from './progress/progress.component';
+import { ProgressPageComponent } from './progress-page/progress-page.component';
 
 const routes: Routes = [
   { path: '', component: LayoutsComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'detail-quiz', component: DetailQuizComponent },
   { path: 'about', component: AboutComponent },
   { path: 'progress', component: ProgressComponent },
+  { path: 'progress-page', component: ProgressPageComponent },
 ];
 
 @NgModule({

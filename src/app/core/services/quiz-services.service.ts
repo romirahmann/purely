@@ -44,4 +44,8 @@ export class QuizServicesService {
   getResultByUserCode(user_code: any) {
     return this.http.get<any>(`${this.apiUrl}/master/result/${user_code}`);
   }
+
+  getAllResult() {
+    return this.http.get<any>(`${this.apiUrl}/master/getAllResult`);
+  }
 }

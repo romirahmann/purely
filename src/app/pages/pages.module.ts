@@ -10,6 +10,7 @@ import { LandingPageQuizComponent } from './landing-page-quiz/landing-page-quiz.
 import { DetailQuizComponent } from './detail-quiz/detail-quiz.component';
 import { AboutComponent } from './about/about.component';
 import { ProgressComponent } from './progress/progress.component';
+import { ProgressPageComponent } from './progress-page/progress-page.component';
 @NgModule({
   declarations: [
     ModalSuccessComponent,
@@ -20,6 +21,7 @@ import { ProgressComponent } from './progress/progress.component';
     DetailQuizComponent,
     AboutComponent,
     ProgressComponent,
+    ProgressPageComponent,
   ],
   imports: [CommonModule, PagesRoutingModule, FormsModule],
 })
