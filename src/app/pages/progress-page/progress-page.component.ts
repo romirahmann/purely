@@ -29,13 +29,14 @@ export class ProgressPageComponent {
   getDataUserLogin() {
     this.apiQuiz.getResultByUserCode(this.userCode).subscribe((res: any) => {
       this.dataUserLogin = res.data[0];
-      console.log(this.dataUserLogin);
+      // console.log(this.dataUserLogin);
     });
   }
 
   getAllResult() {
     this.apiQuiz.getAllResult().subscribe((res: any) => {
       this.dataResult = res.data;
+      console.log(this.dataResult);
     });
   }
 }

@@ -1,3 +1,4 @@
+import { EventService } from 'src/app/core/services/event.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
@@ -15,10 +16,15 @@ export class LayoutsComponent implements OnInit {
   // EMITER LOGIN
   @Output() infoLogin: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private eventService: EventService
+  ) {}
 
   ngOnInit() {
     this.isLogin();
+    this.receivedData();
   }
 
   isLogin() {
@@ -37,15 +43,11 @@ export class LayoutsComponent implements OnInit {
     };
   }
 
-  signOut() {
-    this.authService.logout();
-    this.userLogin = null;
-  }
-
-  toggleUserMenu() {
-    const userDropdown = document.getElementById('user-dropdown');
-    if (userDropdown) {
-      userDropdown.classList.toggle('hidden');
-    }
+  receivedData() {
+    this.eventService.loginSuccessEvent.subscribe((data) => {
+      this.userLogin = data;
+      console.log('Received data in NavbarComponent:', this.userLogin);
+      // Further actions with the received data
+    });
   }
 }

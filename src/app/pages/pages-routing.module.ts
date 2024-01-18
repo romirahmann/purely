@@ -6,6 +6,7 @@ import { DetailQuizComponent } from './detail-quiz/detail-quiz.component';
 import { AboutComponent } from './about/about.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ProgressPageComponent } from './progress-page/progress-page.component';
+import { NavbarComponent } from './layouts/navbar/navbar.component';
 
 const routes: Routes = [
   { path: '', component: LayoutsComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'progress', component: ProgressComponent },
   { path: 'progress-page', component: ProgressPageComponent },
+  { path: 'navbar', component: NavbarComponent },
 ];
 
 @NgModule({

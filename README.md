@@ -1,27 +1,41 @@
-# App
+# Link Repository
+## Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+https://github.com/romirahmann/purely.git 
 
-## Development server
+## Backend
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+https://github.com/romirahmann/backend-purely.git 
 
-## Code scaffolding
+# How To Run Code
+1. Clone backend & frontend repository
+2. Create a database with the name purely & import the SQL file in the database folder in the cloned backend repository.
+3. Open a command prompt, direct the path to the cloned backend repository folder, then type the command npm start to run the backend
+4. Open a command prompt, direct the path to the cloned frontend repository folder, then type the command ng serve or 
+ng serve --o to run the frontend
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Description Team
 
-## Build
+The Klop team is a team from the Bogor Agricultural Institute consisting of 4 students with a background in the Industrial Management and Informatics Engineering study program. In compiling and developing ideas, the team collaborates and works optimally to get the best results. The basics used in developing ideas are the results of problem solving and the results of literature studies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Description Product
 
-## Running unit tests
+PURELY is an interactive puzzle based on a website and Augmented Reality (AR). PURELY can help improve children's understanding of learning material. With AR which has a colorful visual display, it can attract children's interest in learning. The website functions to display learning videos along with quizzes which are useful for honing children's understanding of a material.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Screenshoot Apps
+## AR
 
-## Further help
+ 
+   
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Website
+  
+
+
+  
+
+

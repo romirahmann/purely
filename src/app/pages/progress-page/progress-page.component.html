@@ -20,14 +20,14 @@
     </div>
   </div>
   <div
-    class="progress h-screen bg-primary rounded-t-[2em] md:rounded-t-[10em] relative grid justify-center p-24"
+    class="progress h-screen bg-primary rounded-t-[2em] md:rounded-t-[10em] relative grid justify-center p-20"
   >
     <table>
       <ng-container *ngFor="let result of dataResult">
         <tr>
           <td>
             <img
-              class="w-30 h-30 md:w-20 md:h-20 rounded-full me-5"
+              class="w-30 h-30 md:w-20 md:h-20 rounded-full me-10"
               src="./../../../assets/img/avatar.jpg"
               alt="Rounded avatar"
             />
@@ -35,7 +35,27 @@
           <td>
             <span class="flex flex-col text-white">
               <p class="md:text-3xl">{{ result.user_code }}</p>
-              <p class="md:text-3xl">{{ result.score }}</p>
+              <p class="md:text-3xl">Score: {{ result.score }}</p>
+            </span>
+          </td>
+          <td class="">
+            <span *ngIf="result.score < 50" class="md:ms-12">
+              <i class="fa-solid fa-star md:text-3xl text-yellow-200"></i>
+              <i class="fa-regular fa-star md:text-3xl text-yellow-200"></i>
+              <i class="fa-regular fa-star md:text-3xl text-yellow-200"></i>
+            </span>
+            <span
+              *ngIf="result.score > 49 && result.score < 149"
+              class="md:ms-12"
+            >
+              <i class="fa-solid fa-star md:text-3xl text-yellow-200"></i>
+              <i class="fa-solid fa-star md:text-3xl text-yellow-200"></i>
+              <i class="fa-regular fa-star md:text-3xl text-yellow-200"></i>
+            </span>
+            <span *ngIf="result.score > 149" class="md:ms-12">
+              <i class="fa-solid fa-star md:text-3xl text-yellow-200"></i>
+              <i class="fa-solid fa-star md:text-3xl text-yellow-200"></i>
+              <i class="fa-solid fa-star md:text-3xl text-yellow-200"></i>
             </span>
           </td>
         </tr>

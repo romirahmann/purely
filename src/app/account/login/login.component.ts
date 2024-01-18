@@ -7,6 +7,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { EventService } from 'src/app/core/services/event.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class LoginComponent {
   loginForm!: FormGroup;
+
   hideToglePassword = true;
   // Validation
   wrongUsername = false;
@@ -26,7 +28,8 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private route: Router,
     private api: AuthService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private eventService: EventService
   ) {}
 
   ngOnInit() {
@@ -83,6 +86,14 @@ export class LoginComponent {
           res.userData.user_code,
           res.userData.level_code
         );
+        const userLogin = {
+          username: res.userData.username,
+          user_code: res.userData.user_code,
+          level_code: res.userData.level_code,
+        };
+
+        // Emit event after API call is successful
+        this.eventService.emitLoginSuccess(userLogin);
 
         // console.log(res.userData);
         this.showModal();

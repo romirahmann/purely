@@ -11,6 +11,8 @@ import { DetailQuizComponent } from './detail-quiz/detail-quiz.component';
 import { AboutComponent } from './about/about.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ProgressPageComponent } from './progress-page/progress-page.component';
+import { NavbarComponent } from './layouts/navbar/navbar.component';
+import { EventService } from '../core/services/event.service';
 @NgModule({
   declarations: [
     ModalSuccessComponent,
@@ -22,7 +24,9 @@ import { ProgressPageComponent } from './progress-page/progress-page.component';
     AboutComponent,
     ProgressComponent,
     ProgressPageComponent,
+    NavbarComponent,
   ],
   imports: [CommonModule, PagesRoutingModule, FormsModule],
+  providers: [EventService],
 })
 export class PagesModule {}
